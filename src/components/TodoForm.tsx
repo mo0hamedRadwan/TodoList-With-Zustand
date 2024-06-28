@@ -11,7 +11,7 @@ const TodoForm = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [status, setStatus] = useState('All');
 
-  const searchDebounce = useDebounce(searchTerm, 5000);
+  const searchDebounce = useDebounce(searchTerm, 500);
   const filteredTodoList = useFilteredTodos(searchDebounce, status);
 
   return (
@@ -28,14 +28,14 @@ const TodoForm = () => {
               placeholder={transFrom(lang, 'search')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="p-2 text-xl border border-gray-300 rounded focus:outline-none"
+              className="p-2 text-xl border border-gray-300 rounded focus:outline-none dark:text-black"
             />
             <select
               name="status"
               id="status"
               value={status}
               onChange={(e) => setStatus(e.target.value)}
-              className="p-2 text-xl border border-gray-300 rounded"
+              className="p-2 text-xl border border-gray-300 rounded dark:text-black"
             >
               <option value="All">{transFrom(lang, 'all')}</option>
               <option value="Completed">{transFrom(lang, 'completed')}</option>

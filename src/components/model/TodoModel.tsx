@@ -52,7 +52,10 @@ const TodoModel = ({ heading, id, title = '', desc = '', setShowModel }: propsTy
       style={{ direction: lang === 'ar' ? 'rtl' : 'ltr' }}
     >
       <div className="w-full h-full flex justify-center items-center bg-[rgba(0,0,0,0.2)]">
-        <div ref={ref} className="w-[500px] h-[400px] p-4 flex flex-col rounded-lg bg-white">
+        <div
+          ref={ref}
+          className="w-[500px] h-[400px] dark:bg-slate-600 dark:text-slate-50 p-4 flex flex-col rounded-lg bg-white"
+        >
           <h2 className="text-xl font-bold mb-4">{transFrom(lang, heading)}</h2>
           <div className="flex flex-col gap-4">
             <label htmlFor="title">{transFrom(lang, 'todoTitle')}</label>
@@ -63,7 +66,7 @@ const TodoModel = ({ heading, id, title = '', desc = '', setShowModel }: propsTy
               value={inputTitle}
               onChange={(e) => setInputTitle(e.target.value)}
               placeholder={`${transFrom(lang, 'todo')}...`}
-              className="p-1 border border-gray-500 rounded focus:outline-none"
+              className="p-1 border border-gray-500 rounded focus:outline-none dark:text-black"
             />
             <label htmlFor="">{transFrom(lang, 'todoDesc')}</label>
             <textarea
@@ -72,7 +75,7 @@ const TodoModel = ({ heading, id, title = '', desc = '', setShowModel }: propsTy
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder={transFrom(lang, 'details')}
-              className="w-full h-32 p-2 border border-gray-500 rounded focus:outline-none resize-none"
+              className="w-full h-32 p-2 border border-gray-500 rounded focus:outline-none resize-none dark:text-black"
             ></textarea>
           </div>
           <div className="mt-5 flex justify-evenly">

@@ -48,7 +48,7 @@ const translations: TranslationsList = {
     details: 'التفاصيل',
     done: 'تمت بنجاح',
     alert: 'هل انت متأكد؟ انك تريد حذف هذة المهمة',
-    fillAllFields: 'قم بملإ جميع الخانات بطريقة صحيحة',
+    fillAllFields: 'قم بملء جميع الخانات بطريقة صحيحة',
     createdby: 'تم التصميم بواسطة',
     author: 'محمد رضوان',
     copyrights: 'جميع الحقوق محفوظة',

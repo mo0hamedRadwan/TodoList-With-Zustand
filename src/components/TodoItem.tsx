@@ -29,7 +29,7 @@ const TodoItem = ({ todo }: propsType) => {
 
   return (
     <div
-      className={`w-[280px] h-[150px] p-2 flex flex-col justify-between rounded-lg border-b-2 cursor-pointer ${
+      className={`w-[280px] h-[150px] dark:bg-slate-700 p-2 flex flex-col justify-between rounded-lg border-b-2 cursor-pointer ${
         todo.completed ? 'border-green-500' : 'border-red-500'
       }   shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]`}
       style={{ direction: 'ltr' }}

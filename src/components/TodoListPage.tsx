@@ -10,7 +10,7 @@ const TodoListPage = () => {
   // console.log(lang)
   return (
     <div
-      className="min-h-screen flex flex-col justify-between select-none"
+      className="min-h-screen flex flex-col justify-between select-none dark:bg-slate-950 dark:text-slate-50"
       style={{ direction: lang === 'en' ? 'ltr' : 'rtl' }}
     >
       <TodoHeader />
