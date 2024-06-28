@@ -6,7 +6,7 @@ import { IThemeType } from '../types';
 const useThemeStore = create<IThemeType, [['zustand/persist', unknown]]>(
   persist(
     (set) => ({
-      theme: 'light',
+      theme: 'dark',
       toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
     }),
     {
