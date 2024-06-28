@@ -3,28 +3,16 @@ import { useState } from 'react';
 import AddTodoPortal from './AddTodoPortal';
 import useLanguageStore from '../zustand/useLanguageStore';
 import TodoList from './TodoList';
-import useTodoListStore from '../zustand/useTodoListStore';
+import { useDebounce } from '../hooks/useDebounce';
+import { useFilteredTodos } from '../hooks/useFilteredTodos';
 
 const TodoForm = () => {
   const lang = useLanguageStore((state) => state.lang);
-  const todoList = useTodoListStore((state) => state.todoList);
   const [searchTerm, setSearchTerm] = useState('');
   const [status, setStatus] = useState('All');
 
-  const filteredTodoList = todoList.filter((todo) => {
-    const term = searchTerm.trim().toLowerCase();
-
-    if (term.length > 0) {
-      const filteredByStatus = status === 'All' || todo.completed === (status === 'Completed');
-      const filteredByTitle = todo.title.toLowerCase().includes(term);
-      const filteredByDesc = todo.description.toLowerCase().includes(term);
-
-      // Filter by title or description, considering case insensitivity and status
-      return filteredByStatus && (filteredByTitle || filteredByDesc);
-    } else {
-      return status === 'All' || todo.completed === (status === 'Completed');
-    }
-  });
+  const searchDebounce = useDebounce(searchTerm, 5000);
+  const filteredTodoList = useFilteredTodos(searchDebounce, status);
 
   return (
     <>
